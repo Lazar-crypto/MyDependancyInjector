@@ -1,5 +1,6 @@
 package com.razal.ioc;
 
+import com.razal.ioc.annotations.MyService;
 import com.razal.ioc.config.MyConfiguration;
 import com.razal.ioc.enums.DirectoryType;
 import com.razal.ioc.models.Directory;
@@ -8,6 +9,7 @@ import com.razal.ioc.services.*;
 
 import java.util.Set;
 
+@MyService
 public class MyInjector {
 
     public static void main(String[] args) {

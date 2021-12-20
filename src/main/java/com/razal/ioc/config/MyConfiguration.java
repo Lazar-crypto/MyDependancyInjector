@@ -11,7 +11,7 @@ public class MyConfiguration {
     }
 
     public CustomAnnotationsConfiguration getAnnotations(){
-        return  this.getAnnotations();
+        return  this.annotations;
     }
 
     public MyConfiguration build(){
