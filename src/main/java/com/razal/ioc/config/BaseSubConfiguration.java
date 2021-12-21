@@ -3,14 +3,14 @@ package com.razal.ioc.config;
 public abstract class BaseSubConfiguration {
 
     //builder
-    private final MyConfiguration parentConfig;
+    private final MyConfiguration myConfig;
 
-    protected BaseSubConfiguration(MyConfiguration parentConfig) {
-        this.parentConfig = parentConfig;
+    protected BaseSubConfiguration(MyConfiguration myConfig) {
+        this.myConfig = myConfig;
     }
 
-    public MyConfiguration and(){
-        return this.parentConfig;
+    public MyConfiguration getMyConfig(){
+        return this.myConfig;
     }
 
 }

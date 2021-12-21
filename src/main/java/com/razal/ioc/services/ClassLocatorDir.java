@@ -1,7 +1,7 @@
 package com.razal.ioc.services;
 
 import com.razal.ioc.constants.Constants;
-import com.razal.ioc.exeptions.ClassLocationException;
+import com.razal.ioc.exceptions.ClassLocationException;
 
 import java.io.File;
 import java.util.HashSet;

@@ -1,6 +1,6 @@
 package com.razal.ioc.services;
 
-import com.razal.ioc.exeptions.ClassLocationException;
+import com.razal.ioc.exceptions.ClassLocationException;
 
 import java.util.Set;
 

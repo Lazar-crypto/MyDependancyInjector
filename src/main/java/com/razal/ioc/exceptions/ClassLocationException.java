@@ -1,4 +1,4 @@
-package com.razal.ioc.exeptions;
+package com.razal.ioc.exceptions;
 
 public class ClassLocationException extends RuntimeException {
 

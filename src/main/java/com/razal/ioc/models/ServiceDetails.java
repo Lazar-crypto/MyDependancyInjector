@@ -10,8 +10,8 @@ import java.util.List;
 //model za cuvanje mapiranih klasa
 public class ServiceDetails<T> {
 
-    //naziv
-    private Class<T> serviceType;
+    //naziv klase koja je mapirana
+    private Class<T> className;
 
     //anotacija sa kojom cu da mapiram klasu
     private Annotation annotation;
@@ -31,13 +31,13 @@ public class ServiceDetails<T> {
         this.dependantServices = new ArrayList<>();
     }
 
-    public ServiceDetails(Class<T> serviceType,
+    public ServiceDetails(Class<T> className,
                           Annotation annotation, Constructor<T> targetConstructor,
                           Method postConstrucMethod, Method preDestroyMethod,
                           Method[] beans){
 
         this();
-        this.setServiceType(serviceType);
+        this.setClassName(className);
         this.setAnnotation(annotation);
         this.setTargetConstructor(targetConstructor);
         this.setPostConstrucMethod(postConstrucMethod);
@@ -47,12 +47,12 @@ public class ServiceDetails<T> {
     }
 
 
-    public Class<T> getServiceType() {
-        return serviceType;
+    public Class<T> getClassName() {
+        return className;
     }
 
-    public void setServiceType(Class<T> serviceType) {
-        this.serviceType = serviceType;
+    public void setClassName(Class<T> className) {
+        this.className = className;
     }
 
     public Annotation getAnnotation() {
@@ -75,8 +75,8 @@ public class ServiceDetails<T> {
         return instance;
     }
 
-    public void setInstance(T instance) {
-        this.instance = instance;
+    public void setInstance(Object instance) {
+        this.instance = (T) instance;
     }
 
     public Method getPostConstrucMethod() {
@@ -113,14 +113,14 @@ public class ServiceDetails<T> {
 
     @Override
     public int hashCode(){
-        if(this.serviceType == null){
+        if(this.className == null){
             return super.hashCode();
         }
-        return this.serviceType.hashCode();
+        return this.className.hashCode();
     }
 
     @Override
     public String toString() {
-        return this.getServiceType().getName();
+        return this.getClassName().getName();
     }
 }

@@ -7,6 +7,7 @@ import com.razal.ioc.models.Directory;
 import com.razal.ioc.models.ServiceDetails;
 import com.razal.ioc.services.*;
 
+import java.util.List;
 import java.util.Set;
 
 @MyService
@@ -31,10 +32,15 @@ public class MyInjector {
         if(directory.getDirectoryType() == DirectoryType.JAR_FILE)
             classLocator = new ClassLocatorJar();
 
-        Set<Class<?>> locatedClasses = classLocator.locateClasses(directory.getDirectory());
+        Set<Class<?>> scannedClasses = classLocator.locateClasses(directory.getDirectory());
 
         ServicesScanning servicesScanning = new ServicesScanningImpl(myConfiguration.getAnnotations());
-        Set<ServiceDetails<?>> serviceDetails = servicesScanning.mapServices(locatedClasses);
-        System.out.println(serviceDetails);
+
+        Set<ServiceDetails<?>> mappedClasses = servicesScanning.mapServices(scannedClasses);
+        System.out.println(mappedClasses);
+
+        ObjectInstantiation objectInstantiation = new ObjectInstantiationImpl();
+        ServicesInstantiation servicesInstantiation = new ServicesInstantiationImpl(myConfiguration.getInstances(),objectInstantiation);
+        List<ServiceDetails<?>> instantiatedClasses = servicesInstantiation.instantiateServicesAndBeans(mappedClasses);
     }
 }

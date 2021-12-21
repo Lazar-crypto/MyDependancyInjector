@@ -6,16 +6,18 @@ import com.razal.ioc.annotations.*;
 public class TestServiceTwo {
 
     private final TestService serviceOne;
+    //private final OtherService otherService;
 
     @MyAutowired
     public TestServiceTwo(TestService serviceOne) {
         this.serviceOne = serviceOne;
+       // this.otherService = otherService;
     }
 
 
     @MyPostConstruct
     private void onInit(){
-
+        System.out.println("Testing MyPostConstruct in " + this.getClass().getName());
     }
 
     @MyPreDestroy
@@ -24,7 +26,7 @@ public class TestServiceTwo {
     }
 
     @MyBean
-    public OtherService otherService(){
-        return new OtherService();
+    public OtherTestClass otherTestClass(){
+        return new OtherTestClass();
     }
 }
