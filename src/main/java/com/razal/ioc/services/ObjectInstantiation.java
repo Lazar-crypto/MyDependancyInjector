@@ -9,7 +9,9 @@ import com.razal.ioc.models.ServiceDetails;
 public interface ObjectInstantiation {
 
     void createInstance(ServiceDetails<?> serviceDetails, Object ... constructorParams) throws InstanceException;
+
     void createBeanInstance(ServiceBeanDetails<?> serviceBeanDetails) throws BeanException;
+
     void destroyInstance(ServiceDetails<?> serviceDetails) throws PreDestroyException;
 
 }

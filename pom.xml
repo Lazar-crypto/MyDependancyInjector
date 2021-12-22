@@ -8,25 +8,6 @@
     <artifactId>MyInjector</artifactId>
     <version>1</version>
 
-    <build>
-        <plugins>
-            <!--Ubacicu sve klase u jar fajl -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.razal.ioc.MyInjector</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
-
-
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
